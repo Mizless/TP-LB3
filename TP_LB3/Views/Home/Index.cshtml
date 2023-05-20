@@ -1,0 +1,95 @@
+﻿@using System.Web.Mvc
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Main</title>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        text-align: center;
+        min-height: 100vh;
+        background-color: #f2f2f2;
+    }
+
+    .container {
+        max-width: 600px;
+        padding: 20px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        text-align: center;
+    }
+
+    h2 {
+        color: #333;
+    }
+
+    label {
+        font-weight: bold;
+    }
+
+    input[type="text"],
+    textarea {
+        width: 300px;
+        padding: 5px;
+        margin-bottom: 10px;
+    }
+
+    select {
+        width: 310px;
+        padding: 5px;
+        margin-bottom: 10px;
+    }
+
+    input[type="checkbox"] {
+        margin-right: 5px;
+    }
+
+    input[type="submit"] {
+        padding: 10px 20px;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+    }
+    </style>
+
+</head>
+<body>
+    <h2>Форма</h2>
+    @using (Html.BeginForm())
+    {
+        <div>
+            @Html.Label("Имя")
+            @Html.TextBox("name")
+        </div>
+        <div>
+            @Html.Label("Возраст")
+            @Html.TextBox("Age")
+        </div>
+        <div>
+            @Html.Label("VAG")
+            @Html.DropDownList("VAG", new SelectList(new[] { "Лучшие", "Да" }))
+        </div>
+        <div>
+            @Html.Label("Идентификатор")
+            @Html.TextBox("id_Person")
+        </div>
+        <div>
+            @Html.Label("Дополнительная информация")
+            @Html.TextArea("info")            
+        </div>
+        <br />
+        <div>
+            @Html.CheckBox("Choose")
+            @Html.Label("Поставь галочку или да")
+        </div>
+        <br />
+        <input type="submit" value="Отправить" />
+    }
+</body>
+</html>
